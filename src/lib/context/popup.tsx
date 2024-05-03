@@ -8,3 +8,5 @@ const updater = (value: boolean) => {
 }
 
 export const PopupContext = createContext<Props>({ popup: false, setter: updater })
+
+
