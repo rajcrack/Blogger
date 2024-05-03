@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
     try {
-        const path = new URL(request.url);
+        const path = request.nextUrl;
         const values = path.searchParams;
         const params = values.get('type');
         if (params === "list") {

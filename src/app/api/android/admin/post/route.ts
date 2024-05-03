@@ -1,10 +1,10 @@
 import prisma from '@/lib/global/prisma';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { updatePostSchemaDelete } from '../admin.validator';
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
     try {
-        const path = new URL(request.url);
+        const path = request.nextUrl;
         const values = path.searchParams;
 
         const page = values.get('page');
@@ -42,7 +42,7 @@ export async function GET(request: Request) {
 
 
 
-export async function PUT(request: Request) {
+export async function PUT(request: NextRequest) {
     try {
         const body = await request.json();
         const validate = updatePostSchemaDelete.safeParse(body);

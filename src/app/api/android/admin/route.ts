@@ -1,11 +1,11 @@
 import prisma from '@/lib/global/prisma';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { createAdminSchema } from './admin.validator';
 import { date } from 'zod';
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
     try {
-        const values = new URL(request.url).searchParams;
+        const values = request.nextUrl.searchParams;
         const sec = values.get('loggedIn');
         const body = await request.json();
         const validate = createAdminSchema.safeParse(body);
