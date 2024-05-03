@@ -4,8 +4,8 @@ generator client {
 
 datasource db {
     provider  = "mysql"
-    url       = "mysql://root:@localhost:3306/android_blogger" // uses connection pooling
-    directUrl = "mysql://root:@localhost:3306/android_blogger" // uses a direct connection
+    url       = "mysql://u671099578_android_blog:androidBl3ogger@89.117.188.103:3306/u671099578_android_blog" // uses connection pooling
+    directUrl = "mysql://u671099578_android_blog:androidBl3ogger@89.117.188.103:3306/u671099578_android_blog" // uses a direct connection
 }
 
 model Post {
