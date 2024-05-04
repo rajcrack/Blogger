@@ -1,5 +1,6 @@
 generator client {
-    provider = "prisma-client-js"
+    provider        = "prisma-client-js"
+    previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 datasource db {
@@ -8,7 +9,7 @@ datasource db {
     directUrl = "mysql://u671099578_android_blog:androidBl3ogger@89.117.188.103:3306/u671099578_android_blog" // uses a direct connection
 }
 
-model Post {
+model post {
     id        String   @id @default(cuid())
     title     String
     subtitle  String?
@@ -18,11 +19,17 @@ model Post {
     tags      String?
     createdAt DateTime @default(now()) @map(name: "created_at")
     updatedAt DateTime @updatedAt @map(name: "updated_at")
+
+    @@fulltext([title])
+    @@fulltext([title, tags])
+    @@map("post")
 }
 
-model Admin {
+model admin {
     id       String  @id @default(cuid())
     username String
     password String
     isActive Boolean @default(false)
+
+    @@map("admin")
 }
