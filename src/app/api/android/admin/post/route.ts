@@ -1,10 +1,16 @@
 import prisma from '@/lib/global/prisma';
 import { NextRequest, NextResponse } from 'next/server';
 import { updatePostSchemaDelete } from '../admin.validator';
+import { NextURL } from 'next/dist/server/web/next-url';
+
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
     try {
+
         const path = request.nextUrl;
+
         const values = path.searchParams;
 
         const page = values.get('page');
