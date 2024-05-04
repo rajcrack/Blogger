@@ -6,6 +6,12 @@ export function middleware(request: NextRequest) {
     if (auth === 'Bearer bloggingApplication') {
         return NextResponse.next();
     }
+    console.log(request.url);
+    if (request.url.endsWith("/api")) {
+        return NextResponse.json({
+            message: "CronJob Target Platform."
+        });
+    }
     return NextResponse.json({
         message: "You are not Autorized to use these services."
     }, {
