@@ -1,7 +1,3 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  env: {
-    MYSQL_URL: process.env.MYSQL_URL,
-  },
-};
+const nextConfig = {};
 export default nextConfig;
